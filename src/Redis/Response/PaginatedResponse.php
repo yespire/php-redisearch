@@ -66,7 +66,7 @@ class PaginatedResponse implements Response, Iterator, Countable, ClientAware
     /**
      * @return array<ResponseItem>
      */
-    public function current(): array
+    public function current(): mixed
     {
         if ($this->requestedOffset === ($this->lastCommand->getOffset() ?? 0) && ($this->requestedSize === $this->getPageSize())) {
             $this->requestedOffset = null;
@@ -101,7 +101,7 @@ class PaginatedResponse implements Response, Iterator, Countable, ClientAware
         return (int) ceil($this->totalCount / $this->getPageSize());
     }
 
-    public function key(): int
+    public function key(): mixed
     {
         if (0 === $this->getPageSize()) {
             return 0;

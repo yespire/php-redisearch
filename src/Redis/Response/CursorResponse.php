@@ -78,7 +78,7 @@ class CursorResponse implements Response, Iterator, Countable, ClientAware
     /**
      * @return array<AggregateResponseItem>
      */
-    public function current()
+    public function current(): mixed
     {
         if ($this->doNext) {
             if (!($this->getClient() instanceof Client)) {
@@ -121,7 +121,7 @@ class CursorResponse implements Response, Iterator, Countable, ClientAware
         return (int) ceil($this->totalCount / $this->size);
     }
 
-    public function key()
+    public function key(): mixed
     {
         if (0 === $this->size) {
             return 0;
@@ -130,7 +130,7 @@ class CursorResponse implements Response, Iterator, Countable, ClientAware
         return (int) ceil($this->offset / $this->size) + 1;
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->offset + count($this->items) < $this->totalCount && $this->cursorId > 0;
     }
@@ -145,7 +145,7 @@ class CursorResponse implements Response, Iterator, Countable, ClientAware
         return $this->totalCount;
     }
 
-    public function count()
+    public function count(): int
     {
         return $this->getPageCount();
     }
