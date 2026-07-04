@@ -49,6 +49,9 @@
         "ukko/phpredis-phpdoc": "dev-master",
         "vimeo/psalm": "^4.7"
     },
+    "replace": {
+        "macfja/redisearch": "self.version"
+    },
     "suggest": {
         "ext-phpiredis": "To use Phpiredis extension implementation",
         "ext-redis": "To use Phpredis extension implementation",
