@@ -1,5 +1,5 @@
 {
-    "name": "macfja/redisearch",
+    "name": "yespire/redisearch",
     "description": "PHP Client for RediSearch",
     "license": "MIT",
     "type": "library",
